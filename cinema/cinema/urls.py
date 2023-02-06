@@ -16,6 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from bookings.views import SeatView, SeatDetailView, BookingView, BookingDetailView, ShowView, ShowDetailView
+from movies.views import MovieDetailView, MovieView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('bookings/', BookingView.as_view(), name='booking-list'),
+    path('booking/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
+    path('seats/', SeatView.as_view(), name='seat-list'),
+    path('seat/<int:pk>/', SeatDetailView.as_view(), name='seat-detail'),
+    path('shows/', SeatView.as_view(), name='seat-list'),
+    path('show/<int:pk>/', SeatDetailView.as_view(), name='seat-detail'),
+    path('movies/', MovieView.as_view(), name='movie-list'),
+    path('movie/<int:pk>/', MovieDetailView.as_view(), name='movie-detail'),
+    path('rooms/', MovieView.as_view(), name='room-list'),
+    path('room/<int:pk>/', MovieDetailView.as_view(), name='room-detail'),
 ]
