@@ -12,10 +12,9 @@ COPY Pipfile.lock /code
 RUN pip install pipenv
 RUN pipenv install --ignore-pipfile --deploy
 
-COPY manage.py /code
-COPY runserver.sh /code
-COPY run_event_processor.sh /code
-COPY eagle_eyes /code/eagle_eyes
+COPY cinema/manage.py /code/cinema
+COPY cinema/runserver.sh /code/cinema
+COPY cinema /code/cinema
 
 EXPOSE 8000
 
